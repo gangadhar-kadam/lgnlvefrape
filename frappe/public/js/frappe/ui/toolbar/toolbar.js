@@ -117,7 +117,10 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 				<li><a href="#" onclick="return frappe.ui.toolbar.show_about();">\
 					<i class="icon-fixed-width icon-info-sign"></i> '
 					+__('About')+'</a></li>\
-				<li><a href="https://frappe.io" target="_blank" data-link="docs">\
+				<li><a href="../desk#mail_ticker_manager" target="_self">\
+					<i class="icon-fixed-width icon-info-sign"></i> '
+					+__('Mail And Ticker Manager')+'</a></li>\
+				<li><a href="http://frappe.io/apps" target="_blank">\
 					<i class="icon-fixed-width icon-file"></i> '+__('Documentation')+'</a></li> \
 				<li><a href="http://frappe.io/getting-help" target="_blank">\
 					<i class="icon-fixed-width icon-question-sign"></i> '+__('Forums')+'</a></li> \

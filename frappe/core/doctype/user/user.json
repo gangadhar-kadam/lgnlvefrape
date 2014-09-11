@@ -76,6 +76,82 @@
    "permlevel": 0
   }, 
   {
+   "fieldname": "add_validity", 
+   "fieldtype": "Link", 
+   "label": "Add validity", 
+   "options": "User Validity", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "validity_start_date", 
+   "fieldtype": "Date", 
+   "hidden": 1, 
+   "label": "Validity Start Date", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "validity_end_date", 
+   "fieldtype": "Date", 
+   "hidden": 1, 
+   "label": "Validity End Date", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "no_of_users", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "No of users", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "validity", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "validity", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "country", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "Country", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "email_id_admin", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "Email id admin", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "sites", 
+   "fieldtype": "Text", 
+   "hidden": 1, 
+   "label": "sites", 
+   "permlevel": 0
+  }, 
+  {
+   "default": "false", 
+   "fieldname": "flag", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "flag", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "disable_ticker", 
+   "fieldtype": "Check", 
+   "label": "Disable Ticker", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "ticker", 
+   "fieldtype": "Data", 
+   "label": "ticker", 
+   "permlevel": 0
+  }, 
+  {
    "fieldname": "column_break0", 
    "fieldtype": "Column Break", 
    "oldfieldtype": "Column Break", 
@@ -90,6 +166,13 @@
    "label": "Language", 
    "options": "Loading...", 
    "permlevel": 0
+  }, 
+  {
+   "fieldname": "master_site_url", 
+   "fieldtype": "Data", 
+   "label": "Master Site URL", 
+   "permlevel": 2, 
+   "reqd": 0
   }, 
   {
    "description": "Default is system timezone", 
@@ -109,6 +192,14 @@
    "fieldtype": "Password", 
    "label": "New Password", 
    "no_copy": 1, 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "password", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "Password", 
+   "options": "", 
    "permlevel": 0
   }, 
   {
@@ -462,7 +553,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 5, 
- "modified": "2014-09-08 06:07:20.157915", 
+ "modified": "2014-09-08 16:45:27.781925", 
  "modified_by": "Administrator", 
  "module": "Core", 
  "name": "User", 
@@ -491,20 +582,6 @@
    "write": 1
   }, 
   {
-   "apply_user_permissions": 0, 
-   "cancel": 0, 
-   "create": 0, 
-   "delete": 0, 
-   "email": 0, 
-   "permlevel": 0, 
-   "print": 0, 
-   "read": 1, 
-   "report": 0, 
-   "role": "All", 
-   "submit": 0, 
-   "write": 0
-  }, 
-  {
    "amend": 0, 
    "cancel": 0, 
    "create": 0, 
@@ -514,6 +591,13 @@
    "report": 1, 
    "role": "System Manager", 
    "submit": 0, 
+   "write": 1
+  }, 
+  {
+   "create": 1, 
+   "permlevel": 0, 
+   "read": 1, 
+   "role": "Administrator", 
    "write": 1
   }
  ], 

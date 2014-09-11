@@ -38,7 +38,9 @@ def get_data():
 					"icon": "icon-eye-open",
 					"name": "Permitted Documents For User",
 					"description": _("Check which Documents are readable by a User")
-				}
+				},
+
+				
 			]
 		},
 		{
