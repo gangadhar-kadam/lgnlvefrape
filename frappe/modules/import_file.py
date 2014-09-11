@@ -64,6 +64,7 @@ def import_file_by_path(path, force=False):
 
 def read_doc_from_file(path):
 	doc = None
+	print path
 	if os.path.exists(path):
 		with open(path, 'r') as f:
 			doc = json.loads(f.read())
