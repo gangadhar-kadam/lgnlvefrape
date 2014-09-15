@@ -100,7 +100,7 @@ frappe.Chart = Class.extend({
 	
 		},
 	make_pie_chart:function(from_date,to_date,currency,country){
-		console.log("in the fun");
+		//console.log("in the fun");
 		frappe.call({
 			method:"frappe.core.page.graphical_chart.graphical_chart.get_sales_pie",
 			args: {
@@ -162,7 +162,7 @@ frappe.Chart = Class.extend({
 	    });
 	},
 		make_pie_chart3:function(from_date,to_date,country){
-		console.log("in the fun");
+		//console.log("in the fun");
 		frappe.call({
 			method:"frappe.core.page.graphical_chart.graphical_chart.get_pros",
 			args: {
@@ -222,7 +222,7 @@ frappe.Chart = Class.extend({
 	    });
 	},
 	make_pie_chart4:function(from_date,to_date,country){
-		console.log("in the fun");
+		//console.log("in the fun");
 		frappe.call({
 			method:"frappe.core.page.graphical_chart.graphical_chart.get_subscription",
 			args: {
