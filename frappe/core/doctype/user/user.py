@@ -135,7 +135,7 @@ class User(Document):
 		link = get_url("/update-password?key=" + key)
 		from frappe.utils import get_url, cstr
 		frappe.errprint(get_url())
-		if get_url()=='http://smarttailor':
+		if get_url()=='http://tailorpad.com':
 			self.send_login_mail2("Verify Your Account",link)
 		else:
 			self.send_login_mail("Verify Your Account", "templates/emails/new_user.html", {"link": link})

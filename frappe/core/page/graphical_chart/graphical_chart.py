@@ -87,7 +87,7 @@ def get_activities():
 	from frappe.utils import get_url, cstr
 	frappe.errprint(get_url())
 	frappe.errprint("in activities")
-	if get_url()=='http://smarttailor':
+	if get_url()=='http://tailorpad.com':
 		frappe.errprint("in the get_activities")
 		dbname=frappe.db.sql("""select site_name from `tabSubAdmin Info` where active=1""",as_dict=1)
 		frappe.errprint("dbname")
