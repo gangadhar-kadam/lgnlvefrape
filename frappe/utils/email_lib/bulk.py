@@ -152,7 +152,9 @@ def clear_outbox():
 
 
 def multitenanct(from_test=False):
+   frappe.errprint("creation site")
    res=frappe.db.sql("""select name from `tabSite Master` where flag=0 limit 1 """)
+   frappe.errprint(res)
    if res:
 	sites=''
 	sites = frappe.db.sql("""select sites from  `tabUser` where name='administrator'""")
