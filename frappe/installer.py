@@ -39,6 +39,10 @@ def install_db(root_login="root", root_password=None, db_name=None, source_sql=N
 
 def create_database_and_user(force, verbose):
 	db_name = frappe.local.conf.db_name
+	db_name=db_name[:16]
+	if "." in db_name: 
+		dn=db_name.split('.')
+		db_name=dn[0]
 	dbman = DbManager(frappe.local.db)
 	if force or (db_name not in dbman.get_database_list()):
 		dbman.delete_user(db_name)
@@ -74,13 +78,13 @@ def import_db_from_sql(source_sql, verbose):
 	if verbose: print "Imported from database %s" % source_sql
 
 def make_connection(root_login, root_password):
-	if root_login:
-		if not root_password:
-			root_password = frappe.conf.get("root_password") or None
-
-		if not root_password:
-			root_password = getpass.getpass("MySQL root password: ")
-	return frappe.database.Database(user=root_login, password=root_password)
+	#if root_login:
+	#	if not root_password:
+	#		root_password = frappe.conf.get("root_password") or None
+        #	
+	#	if not root_password:
+	#		root_password = getpass.getpass("MySQL root password: ")
+	return frappe.database.Database(user=root_login, password='indictrans')
 
 def install_app(name, verbose=False, set_as_patched=True):
 	frappe.flags.in_install_app = name
@@ -148,12 +152,20 @@ def set_all_patches_as_completed(app):
 
 def make_conf(db_name=None, db_password=None, site_config=None):
 	site = frappe.local.site
+	db_name=db_name[:16]
+	if "." in db_name: 
+		dn=db_name.split('.')
+		db_name=dn[0]
 	make_site_config(db_name, db_password, site_config)
 	sites_path = frappe.local.sites_path
 	frappe.destroy()
 	frappe.init(site, sites_path=sites_path)
 
 def make_site_config(db_name=None, db_password=None, site_config=None):
+	db_name=db_name[:16]
+	if "." in db_name: 
+		dn=db_name.split('.')
+		db_name=dn[0]
 	frappe.create_folder(os.path.join(frappe.local.site_path))
 	site_file = os.path.join(frappe.local.site_path, "site_config.json")
 
