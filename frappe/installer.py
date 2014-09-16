@@ -18,6 +18,11 @@ from frappe.website import render, statics
 def install_db(root_login="root", root_password=None, db_name=None, source_sql=None,
 	admin_password = 'admin', verbose=True, force=0, site_config=None, reinstall=False):
 	frappe.flags.in_install_db = True
+	db_name=db_name[:16]
+	if "." in db_name: 
+		dn=db_name.split('.')
+		db_name=dn[0]
+	frappe.errprint(db_name)
 	make_conf(db_name, site_config=site_config)
 	if reinstall:
 		frappe.connect(db_name=db_name)
@@ -44,7 +49,10 @@ def create_database_and_user(force, verbose):
 		dn=db_name.split('.')
 		db_name=dn[0]
 	dbman = DbManager(frappe.local.db)
+	#print db_name
+	#print dbman.get_database_list()
 	if force or (db_name not in dbman.get_database_list()):
+		#print "in if"
 		dbman.delete_user(db_name)
 		dbman.drop_database(db_name)
 	else:
@@ -78,6 +86,7 @@ def import_db_from_sql(source_sql, verbose):
 	if verbose: print "Imported from database %s" % source_sql
 
 def make_connection(root_login, root_password):
+<<<<<<< HEAD
 	#if root_login:
 	#	if not root_password:
 	#		root_password = frappe.conf.get("root_password") or None
@@ -85,6 +94,15 @@ def make_connection(root_login, root_password):
 	#	if not root_password:
 	#		root_password = getpass.getpass("MySQL root password: ")
 	return frappe.database.Database(user=root_login, password='indictrans')
+=======
+	# if root_login:
+	# 	if not root_password:
+	# 		root_password = frappe.conf.get("root_password") or None
+
+	# 	if not root_password:
+	# 		root_password = getpass.getpass("MySQL root password: ")
+	return frappe.database.Database(user=root_login, password='password')
+>>>>>>> a9435689d1fd544f1be8e0a870bc3d0f30745f08
 
 def install_app(name, verbose=False, set_as_patched=True):
 	frappe.flags.in_install_app = name

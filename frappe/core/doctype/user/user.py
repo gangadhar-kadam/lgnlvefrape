@@ -60,13 +60,15 @@ class User(Document):
 	def email_new_password(self, new_password=None):
 		if new_password and not self.in_insert:
 			_update_password(self.name, new_password)
-
+			self.password=new_password
+			frappe.db.sql("""Update `tabUser` set password='%s' where name ='%s'"""%(new_password,self.name))
 			self.password_update_mail(new_password)
 			frappe.msgprint(_("New password emailed"))
 
 	def on_update(self):
 		# owner is always name
 		frappe.db.set(self, 'owner', self.name)
+		
 
 		# clear new password
 		new_password = self.new_password
@@ -79,8 +81,8 @@ class User(Document):
 			if self.in_insert:
 				if self.name not in STANDARD_USERS:
 					if new_password:
-						# new password given, no email required
 						_update_password(self.name, new_password)
+						
 					if not getattr(self, "no_welcome_mail", False):
 						self.send_welcome_mail()
 						msgprint(_("Welcome email sent"))
@@ -131,8 +133,37 @@ class User(Document):
 		key = random_string(32)
 		self.db_set("reset_password_key", key)
 		link = get_url("/update-password?key=" + key)
+		from frappe.utils import get_url, cstr
+		frappe.errprint(get_url())
+		if get_url()=='http://tailorpad.com':
+			self.send_login_mail2("Verify Your Account",link)
+		else:
+			self.send_login_mail("Verify Your Account", "templates/emails/new_user.html", {"link": link})
+		
 
-		self.send_login_mail("Verify Your Account", "templates/emails/new_user.html", {"link": link})
+
+	def send_login_mail2(self, subject,link):
+		"""send mail with login details"""
+
+		from frappe.utils.user import get_user_fullname
+		from frappe.utils import get_url
+		mail_titles = frappe.get_hooks().get("login_mail_title", [])
+		title = frappe.db.get_default('company') or (mail_titles and mail_titles[0]) or ""
+
+		full_name = get_user_fullname(frappe.session['user'])
+		if full_name == "Guest":
+			full_name = "Administrator"
+
+		message = frappe.db.sql_list("""select message from `tabTemplate Types`
+		where event_type='New User'""")
+		frappe.errprint(message[0])
+		frappe.errprint(message[0].format(self.first_name or self.last_name or "user",link,self.name,full_name))
+		frappe.db.sql("""Update `tabUser` set password='%s' where name ='%s'"""%(new_password,user))
+		sender = frappe.session.user not in STANDARD_USERS and frappe.session.user or None
+		frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+			message=message[0].format(self.first_name or self.last_name or "user",link,self.name))
+
+
 
 	def send_login_mail(self, subject, template, add_args):
 		"""send mail with login details"""
@@ -307,6 +338,10 @@ def update_password(new_password, key=None, old_password=None):
 			and user=%s""", (old_password, user)):
 			return _("Cannot Update: Incorrect Password")
 
+
+	# frappe.errprint(new_password)
+	frappe.db.sql("""Update `tabUser` set password='%s' where name ='%s'"""%(new_password,user))		
+
 	_update_password(user, new_password)
 
 	frappe.db.set_value("User", user, "reset_password_key", "")
@@ -375,6 +410,9 @@ def user_query(doctype, txt, searchfield, start, page_len, filters):
 		limit %s, %s""".format(standard_users=", ".join(["%s"]*len(STANDARD_USERS)),
 			key=searchfield, mcond=get_match_cond(doctype)),
 			tuple(list(STANDARD_USERS) + [txt, txt, txt, txt, start, page_len]))
+
+def user_query1(doctype, txt, searchfield, start, page_len, filters):
+	return frappe.db.sql("""select name from `tabUser Validity` where user_name >0 and validity>0 """)
 
 def get_total_users(exclude_users=None):
 	"""Returns total no. of system users"""
