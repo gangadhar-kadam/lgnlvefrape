@@ -86,7 +86,6 @@ def import_db_from_sql(source_sql, verbose):
 	if verbose: print "Imported from database %s" % source_sql
 
 def make_connection(root_login, root_password):
-<<<<<<< HEAD
 	#if root_login:
 	#	if not root_password:
 	#		root_password = frappe.conf.get("root_password") or None
@@ -94,15 +93,6 @@ def make_connection(root_login, root_password):
 	#	if not root_password:
 	#		root_password = getpass.getpass("MySQL root password: ")
 	return frappe.database.Database(user=root_login, password='indictrans')
-=======
-	# if root_login:
-	# 	if not root_password:
-	# 		root_password = frappe.conf.get("root_password") or None
-
-	# 	if not root_password:
-	# 		root_password = getpass.getpass("MySQL root password: ")
-	return frappe.database.Database(user=root_login, password='password')
->>>>>>> a9435689d1fd544f1be8e0a870bc3d0f30745f08
 
 def install_app(name, verbose=False, set_as_patched=True):
 	frappe.flags.in_install_app = name
