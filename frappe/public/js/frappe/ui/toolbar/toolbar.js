@@ -114,18 +114,9 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 				title="'+__("Help")+'"\
 				onclick="return false;">'+__("Help")+'</a>\
 			<ul class="dropdown-menu" id="toolbar-help"> \
-				<li><a href="#" onclick="return frappe.ui.toolbar.show_about();">\
-					<i class="icon-fixed-width icon-info-sign"></i> '
-					+__('About')+'</a></li>\
 				<li><a href="../desk#mail_ticker_manager" target="_self">\
 					<i class="icon-fixed-width icon-info-sign"></i> '
 					+__('Mail And Ticker Manager')+'</a></li>\
-				<li><a href="http://frappe.io/apps" target="_blank">\
-					<i class="icon-fixed-width icon-file"></i> '+__('Documentation')+'</a></li> \
-				<li><a href="http://frappe.io/getting-help" target="_blank">\
-					<i class="icon-fixed-width icon-question-sign"></i> '+__('Forums')+'</a></li> \
-					<li><a href="http://github.com/frappe/erpnext/issues" target="_blank">\
-						<i class="icon-fixed-width icon-warning-sign"></i> '+__('Report an Issue')+'</a></li> \
 				<li class="divider"></li> \
 				<li><a href="#" onclick="return frappe.ui.toolbar.clear_cache();">\
 					<i class="icon-fixed-width icon-refresh"></i> '

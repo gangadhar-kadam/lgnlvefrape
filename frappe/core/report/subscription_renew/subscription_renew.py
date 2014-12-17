@@ -16,7 +16,7 @@ def execute(filters=None):
 		  temp=temp.split('.')[0][:16]
 	    	else:
 		  temp=temp[:16]
-		qry="SELECT name,DATE_FORMAT(validity_end_date,'%d/%m/%Y'),'"+temp1+"' as site_name FROM  "
+		qry="SELECT name,DATE(validity_end_date),'"+temp1+"' as site_name FROM  "
 		if temp :
 			qry+=temp+'.tabUser where name not in ("Guest","Administrator")'  
 			lst.append(qry)
@@ -29,7 +29,7 @@ def execute(filters=None):
 def get_columns():
 	return [
 		"User Name:Data:220",
-		"Subscriptio Expiring on:Date:220",
+		"Subscription Expiring on:Date:220",
 		"Site Name:Data:320"		
 	]
 

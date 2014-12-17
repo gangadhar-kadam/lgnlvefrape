@@ -106,7 +106,8 @@ class Database:
 					frappe.log("with values:")
 					frappe.log(values)
 					frappe.log(">>>>")
-
+				#print query
+				#print values
 				self._cursor.execute(query, values)
 
 			else:

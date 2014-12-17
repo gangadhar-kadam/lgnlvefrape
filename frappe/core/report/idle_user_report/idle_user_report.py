@@ -1,9 +1,14 @@
 from __future__ import unicode_literals
+from frappe.utils import cstr, flt, getdate, cint
 import frappe
 def get_columns():
 	return ["User Name:295", "Last Logged on:Date:230","Site Name:395"]
 
 def execute(filters=None):
+	day=1
+	frappe.errprint("hii")
+	if filters:
+		day=filters.get('idle_days')
 	columns = get_columns()
 	data = []
 	dbname=frappe.db.sql("""select site_name from `tabSubAdmin Info` """,as_dict=1)
@@ -18,7 +23,7 @@ def execute(filters=None):
 		  temp=temp[:16]
 		qry="SELECT name,last_login,'%s' as site_name FROM  "%(temp1)
 		if temp :
-			qry+=temp+'.tabUser where name not in ("Guest","Administrator") and (hour(timediff(now(), last_login)) > 24 || last_login is null )'  
+			qry+=temp+'.tabUser where name not in ("Guest","Administrator") and (hour(timediff(now(), last_login))/24 > %s || last_login is null )'%(cint(day))
 			lst.append(qry)
 	fin_qry=' UNION '.join(lst)
 	qry=qry_srt+fin_qry+" where doc_name='Administrator')foo ORDER BY creation DESC limit 5"

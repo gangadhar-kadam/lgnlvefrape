@@ -1,11 +1,11 @@
 app_name = "frappe"
-app_title = "Frappe Framework"
-app_publisher = "Web Notes Technologies Pvt. Ltd."
+app_title = "TailorPad"
+app_publisher = "tailorpad.com"
 app_description = "Full Stack Web Application Framework in Python"
-app_icon = "assets/frappe/images/frappe.svg"
+app_icon = "icon-star-empty"
 app_version = "4.4.0"
 app_color = "#3498db"
-app_email = "support@frappe.io"
+app_email = "support@tailorpad.com"
 
 before_install = "frappe.utils.install.before_install"
 after_install = "frappe.utils.install.after_install"
@@ -73,7 +73,6 @@ doc_events = {
 scheduler_events = {
 	"all": [
 	     "frappe.utils.email_lib.bulk.flush",
-	     "frappe.utils.email_lib.bulk.multitenanct"	 
 	],
 	"daily": [
 		"frappe.utils.email_lib.bulk.clear_outbox",

@@ -312,7 +312,7 @@ def get_languages():
 def get_all_roles(arg=None):
 	"""return all roles"""
 	return [r[0] for r in frappe.db.sql("""select name from tabRole
-		where name not in ('Administrator', 'Guest', 'All') order by name""")]
+		where name not in ('Administrator', 'Guest', 'All','Super Admin') order by name""")]
 
 @frappe.whitelist()
 def get_user_roles(arg=None):

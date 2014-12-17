@@ -32,6 +32,7 @@ CREATE TABLE `tabDocField` (
   `reqd` int(1) DEFAULT NULL,
   `no_copy` int(1) DEFAULT NULL,
   `allow_on_submit` int(1) DEFAULT NULL,
+  `precision` int(1) DEFAULT NULL,
   `trigger` varchar(255) DEFAULT NULL,
   `depends_on` varchar(255) DEFAULT NULL,
   `permlevel` int(11) DEFAULT '0',

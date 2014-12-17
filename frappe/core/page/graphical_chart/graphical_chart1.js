@@ -1,85 +1,85 @@
+
 // frappe.require("/core/page/graphical_chart/api.js");
 
 frappe.pages['graphical-chart'].onload = function(wrapper) {
-        frappe.ui.make_app_page({
-                parent: wrapper,
-                title: 'Chart'
-            // single_column: true
-        });
+	frappe.ui.make_app_page({
+		parent: wrapper,
+		title: 'Chart'
+	    // single_column: true
+	});
 
 // $(wrapper).find(".layout-main").html("<div class='user-settings'  id ='sp_tab'  style='min-height: 200px;'></div>");
 
 $('<div id="head" style="height:20px; width:100%;" ><b>Sales Details</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 $("<table class='table table-bordered' style='height:150px; width:100%;'>\
-        <tr width='100%'>\
-        <td width='40%'><div class='user-settings' style='min-height: 150px;' id ='pie_tab' ></div>\
-        </td><td width='40%'><div class='user-settings' style='min-height: 150px;' id ='column_tab' ></div></td>\
-        </tr>\
-        </table>").appendTo($(wrapper).find(".layout-main-section"));
-
+	<tr width='100%'>\
+	<td width='40%'><div class='user-settings' style='min-height: 150px;' id ='pie_tab' ></div>\
+	</td><td width='40%'><div class='user-settings' style='min-height: 150px;' id ='column_tab' ></div></td>\
+	</tr>\
+	</table>").appendTo($(wrapper).find(".layout-main-section"));
+        
 //for heading
 $('<div id="head" style="height:20px; width:1000%;" ><b>Prospects Details</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 //for filter
 $('<div id="main" style="height:50px; width:100%px;" >\
-        <table class="table" style="height:5px; width:100%;" >\
-        <tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab22" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab122" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab222" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab322" style="min-height: 10px;" ></div></td>\
-        </tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
+	<table class="table" style="height:5px; width:100%;" >\
+	<tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab22" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab122" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab222" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab322" style="min-height: 10px;" ></div></td>\
+	</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 //for chart
 $("<table class='table table-bordered' style='height:150px; width:100%;'>\
-        <tr width='100%'><td width='50%'>\
-        <div class='user-settings'  id ='pie_tab3'  style='min-height: 150px;'></div></td>\
-        <td width='50%'><div class='user-settings'  id ='column_tab3'  style='min-height:150px;'></div></td>\
-        </tr>\
-        </table>").appendTo($(wrapper).find('.layout-main-section'));
-
+	<tr width='100%'><td width='50%'>\
+	<div class='user-settings'  id ='pie_tab3'  style='min-height: 150px;'></div></td>\
+	<td width='50%'><div class='user-settings'  id ='column_tab3'  style='min-height:150px;'></div></td>\
+	</tr>\
+	</table>").appendTo($(wrapper).find('.layout-main-section'));
+      
 //for heading
-$('<div id="head" style="height:20px; width:100%;" ><b>Subscription Renewal Details</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
+$('<div id="head" style="height:20px; width:100%;" ><b>Subscrption Renewal Details</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 //for forth filter
 $('<div id="main" style="height:50px; width:100%;" >\
-        <table class="table" style="height:5px; width:100%;" >\
-        <tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab44" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab144" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab244" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab344" style="min-height: 10px;" ></div></td>\
-        </tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
+	<table class="table" style="height:5px; width:100%;" >\
+	<tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab44" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab144" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab244" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab344" style="min-height: 10px;" ></div></td>\
+	</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 
 //for chart
 $("<table class='table table-bordered' style='height:150px; width:100%;'>\
-        <tr width='100%'><td width='50%'>\
-        <div class='user-settings'  id ='pie_tab4' style='min-height: 150px;'></div></td>\
-        <td width='50%'><div class='user-settings'  id ='column_tab4'  style='min-height: 150px;'></div></td>\
-        </tr>\
-        </table>").appendTo($(wrapper).find('.layout-main-section'));
-
+	<tr width='100%'><td width='50%'>\
+	<div class='user-settings'  id ='pie_tab4' style='min-height: 150px;'></div></td>\
+	<td width='50%'><div class='user-settings'  id ='column_tab4'  style='min-height: 150px;'></div></td>\
+	</tr>\
+	</table>").appendTo($(wrapper).find('.layout-main-section'));
+      
 //for heading
 $('<div id="head" style="height:20px; width:100%;" ><b>New Sales Details</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 
 //for fifth filters
 $('<div id="main" style="height:50px; width:100%;" >\
-        <table class="table" style="height:5px; width:100%;" >\
-        <tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab55" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab155" text-align="left" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab255" style="min-height: 10px;" ></div></td>\
-        <td width="25%"><div id ="ctab355" style="min-height: 10px;" ></div></td>\
-        </tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
+	<table class="table" style="height:5px; width:100%;" >\
+	<tr width="100%"><td width="25%" style="min-height:20px;"><div id ="ctab55" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab155" text-align="left" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab255" style="min-height: 10px;" ></div></td>\
+	<td width="25%"><div id ="ctab355" style="min-height: 10px;" ></div></td>\
+	</tr></table></div>').appendTo($(wrapper).find('.layout-main-section'));
 
 //for fifth chart
 $("<table class='table table-bordered' style='height:40px; width:100%;'>\
-        <tr width='100%'><td width='40%'>\
-        <div class='user-settings'  id ='pie_tab5' style='min-height: 180px;'></div></td>\
-        <td width='60%'><div class='user-settings'  id ='column_tab5'  style='min-height: 200px;'></div></td>\
-        </tr>\
-        </table>").appendTo($(wrapper).find('.layout-main-section'));
-
+	<tr width='100%'><td width='40%'>\
+	<div class='user-settings'  id ='pie_tab5' style='min-height: 180px;'></div></td>\
+	<td width='60%'><div class='user-settings'  id ='column_tab5'  style='min-height: 200px;'></div></td>\
+	</tr>\
+	</table>").appendTo($(wrapper).find('.layout-main-section'));
+    
 //for side section
 $("<div id='side' ></div>").appendTo($(wrapper).find('.layout-side-section'));
 
-wrapper.this = new frappe.Chart(wrapper);
+wrapper.this = new frappe.Chart(wrapper);	
 }
-
 
 frappe.Chart = Class.extend({
 	init: function(wrapper) {
@@ -112,7 +112,7 @@ frappe.Chart = Class.extend({
 					country:country,
 				},
 			callback: function(r) {
-				//console.log(r.message);
+				console.log(r.message);
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    function drawChart() {
@@ -123,7 +123,7 @@ frappe.Chart = Class.extend({
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-	      		       	  legend: { position: 'top', maxLines: 3 }
+		      title: 'Sales Activities'
 		    };
 		    var chart = new google.visualization.PieChart(document.getElementById('pie_tab'));
 		    chart.draw(data, options);
@@ -142,7 +142,7 @@ frappe.Chart = Class.extend({
 					country:country,
 				},
 			callback: function(r) {
-				//console.log(typeof(r.message));
+				console.log(typeof(r.message));
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    // google.setOnLoadCallback(drawChart);
@@ -155,9 +155,7 @@ frappe.Chart = Class.extend({
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-		      		  hAxis: {title: 'Year-month',titleTextStyle: {color: '#b87333'}},
-				  vAxis: {title: 'sales & Revenue (Amt.)',minValue:0,titleTextStyle: {color: 'red'}},
-				  legend: { position: 'top', maxLines: 3 }
+		      title: 'Sales/Revenue Activities'
 		    };
 		    var chart = new google.visualization.ColumnChart(document.getElementById("column_tab"));
 		    chart.draw(data, options);
@@ -175,7 +173,7 @@ frappe.Chart = Class.extend({
 					country:country
 				},
 			callback: function(r) {
-				//console.log(r.message);
+				console.log(r.message);
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    function drawChart() {
@@ -186,7 +184,7 @@ frappe.Chart = Class.extend({
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-		      legend: { position: 'top', maxLines: 3 }
+		      title: 'Prospects Sale'
 		    };
 		    var chart = new google.visualization.PieChart(document.getElementById('pie_tab3'));
 		    chart.draw(data, options);
@@ -204,7 +202,7 @@ frappe.Chart = Class.extend({
 					country:country
 				},
 			callback: function(r) {
-			//console.log(r.message);
+			console.log(r.message);
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    // google.setOnLoadCallback(drawChart);
@@ -217,9 +215,7 @@ frappe.Chart = Class.extend({
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-				  hAxis: {title: 'Year-month',titleTextStyle: {color: '#b87333'}},
-				  vAxis: {title: 'Prospects Sale (Amt.)',minValue:0,titleTextStyle: {color: 'red'}},	      		  
-				  legend: { position: 'top', maxLines: 3 }
+		      title: 'Prospects Sale'
 		    };
 		    var chart = new google.visualization.ColumnChart(document.getElementById("column_tab3"));
 		    chart.draw(data, options);
@@ -237,18 +233,18 @@ frappe.Chart = Class.extend({
 					country:country
 				},
 			callback: function(r) {
-				//console.log(typeof(r.message));
+				console.log(typeof(r.message));
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    function drawChart() {
-		  	 mydata=[['sales','Subscriptions']];
+		  	 mydata=[['sales','Expenses']];
 		   	 for(var x in r.message.order_total){
   				mydata.push(r.message.order_total[x]);
                }
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-        	      		  legend: { position: 'top', maxLines: 3 }
+		      title: 'Subscription Activities'
 		    };
 		    var chart = new google.visualization.PieChart(document.getElementById('pie_tab4'));
 		    chart.draw(data, options);
@@ -266,12 +262,12 @@ frappe.Chart = Class.extend({
 					country:country
 				},
 			callback: function(r) {
-				//console.log(typeof(r.message));
+				console.log(typeof(r.message));
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    // google.setOnLoadCallback(drawChart);
 		    function drawChart() {
-		  	 mydata=[['sales','Subscriptions']];
+		  	 mydata=[['sales','Expenses']];
 		  	 // console.log(r.message.sales_order_total[0]);
 		  	 for(var x in r.message.order_total){
   				mydata.push(r.message.order_total[x]);
@@ -279,9 +275,7 @@ frappe.Chart = Class.extend({
                // console.log(mydata)
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-	      		  hAxis: {title: 'Year-month',titleTextStyle: {color: '#b87333'}},
-			  vAxis: {title: 'Subscriptions ',minValue:0,titleTextStyle: {color: 'red'}},
-			  legend: { position: 'top', maxLines: 3 }
+		      title: 'Subscription Activities'
 		    };
 		    var chart = new google.visualization.ColumnChart(document.getElementById("column_tab4"));
 		    chart.draw(data, options);
@@ -290,8 +284,8 @@ frappe.Chart = Class.extend({
 	    });
 	},
 	make_column_chart5:function(from_date,to_date,country){
-		//console.log("in the column chart 5 country");
-		//console.log(country);
+		console.log("in the column chart 5");
+		console.log(country);
 	frappe.call({
 			method:"frappe.core.page.graphical_chart.graphical_chart.get_data_newsalecol",
 			args: {
@@ -300,24 +294,22 @@ frappe.Chart = Class.extend({
 					country:country,
 				},
 			callback: function(r) {
-				//console.log(typeof(r.message));
+				console.log(typeof(r.message));
 
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    // google.setOnLoadCallback(drawChart);
 		    function drawChart() {
 		  	 mydata=[['Year','Lead','Customer']];
-		  	 //console.log("in the sales function");
+		  	 console.log("in the sales function");
 		  	 for(var x in r.message.order_total){
   				mydata.push(r.message.order_total[x]);
                }
-              //console.log("data")
-            //console.log(mydata)   
+              console.log("data")
+            console.log(mydata)   
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-	      		  hAxis: {title: 'Year-month',titleTextStyle: {color: '#b87333'}},
-			  vAxis: {title: 'Lead & Customers',minValue:0,titleTextStyle: {color: 'red'}},
-			  legend: { position: 'top', maxLines: 3 }
+		      title: 'Lead/Customer Details'
 		    };
 		    var chart = new google.visualization.ColumnChart(document.getElementById("column_tab5"));
 		    chart.draw(data, options);
@@ -326,8 +318,8 @@ frappe.Chart = Class.extend({
 	});
 	},
 	make_pie_chart5:function(from_date,to_date,country){
-		    //console.log("in the pie chart 5 country");
-		    //console.log(country);
+		    console.log("in the pie chart 5");
+		    console.log(country);
 			frappe.call({
 			method:"frappe.core.page.graphical_chart.graphical_chart.get_data_newsalepie",
 			args: {
@@ -336,20 +328,20 @@ frappe.Chart = Class.extend({
 					country:country
 				},
 			callback: function(r) {
-				//console.log(r.message);
+				console.log(r.message);
 
 			var options = {packages: ['corechart'], callback : drawChart};
 		    google.load('visualization', '1', options);
 		    // google.setOnLoadCallback(drawChart);
 		    function drawChart() {
 		  	 mydata=[['Month','Count']];
-		  	 //console.log(r.message.order_total[0]);
+		  	 console.log(r.message.order_total[0]);
 		  	 for(var x in r.message.order_total){
   				mydata.push(r.message.order_total[x]);
                }
 		    var data = google.visualization.arrayToDataTable(mydata);
 		    var options = {
-		    	  legend: { position: 'top', maxLines: 3 }
+		      title: 'New Sales(Lead) Activities'
 		    };
 		    var chart = new google.visualization.PieChart(document.getElementById('pie_tab5'));
 		    chart.draw(data, options);
@@ -360,32 +352,28 @@ frappe.Chart = Class.extend({
 
 	make_link: function(){
 		var me = this;
-    	this.sales_country = this.wrapper.appframe.add_field({
+    	this.country = this.wrapper.appframe.add_field({
 			fieldname: "country",
 			label: __("Country"),
 			fieldtype: "Link",
 			options: "Country"
 		});		
 		this.sales_from_date = this.wrapper.appframe.add_date(
-			"From Date").change(function()
-			 {	
-			 	var from_date=$(this).val();
-			 	var to_date=me.sales_to_date.val();
-			 	var currency=me.currency.$input.val();
-			 	var country=me.sales_country.$input.val()
-			 	me.make_pie_chart(from_date,to_date,currency,country)
-				me.make_column_chart(from_date,to_date,currency,country)
-			});		
+			"From Date");		
 		this.sales_to_date = this.wrapper.appframe.add_date(
 			"To Date").change(function()
 			 {	
 			 	var from_date=me.sales_from_date.val();
 			 	var to_date=$(this).val();
-			 	var country=me.sales_country.$input.val()
-			 	var currency=me.currency.$input.val();
-			 	me.make_pie_chart(from_date,to_date,currency,country)
-				me.make_column_chart(from_date,to_date,currency,country)
-				
+			 	if(from_date < to_date)			 	
+			 	{
+			 	console.log("in same ");
+			 	me.make_pie_chart(from_date,to_date)
+				me.make_column_chart(from_date,to_date)
+				}else
+				{					
+					msgprint(__("Please enter valid date."));
+				}
 				});
 	
 		this.currency= this.wrapper.appframe.add_field({
@@ -399,21 +387,27 @@ frappe.Chart = Class.extend({
 			    var from_date=me.sales_from_date.val();
 			    var to_date=me.sales_to_date.val();
 			 	var currency=$(this).val();
-			 	var country=me.sales_country.$input.val()
-			 	console.log(['currecy change', me.sales_country.$input.val()])
-			 	me.make_pie_chart(from_date,to_date,currency,country)
-				me.make_column_chart(from_date,to_date,currency,country)
-				//console.log("hh");
+			 	// var country=$(this).val();
+			 	console.log("nt the 2nd");
+			 	console.log(to_date);
+			 	console.log(currency);
+			 	me.make_pie_chart(from_date,to_date,currency)
+				me.make_column_chart(from_date,to_date,currency)
+				console.log("hh");
 		});	
 
-		this.sales_country.$input.on("change", function() {
+
+		this.country.$input.on("change", function() {
 			    var from_date=me.sales_from_date.val();
 			    var to_date=me.sales_to_date.val();
 			    var currency=me.currency.$input.val();
 			 	var country=$(this).val();
+			 	console.log("nt the 2nd");
+			 	console.log(currency);
+			 	console.log(country);
 			 	me.make_pie_chart(from_date,to_date,currency,country)
 				me.make_column_chart(from_date,to_date,currency,country)
-				//console.log("hh");
+				console.log("hh");
 		});			
 	
     },
@@ -462,23 +456,19 @@ frappe.Chart = Class.extend({
         this.prosp_field2.$input.on("change", function() {
          	    var from_date=me.prosp_field1.$input.val();
 			 	var to_date=$(this).val();
-			 	var country=me.prosp_field.$input.val();
-			 	me.make_pie_chart3(from_date,to_date,country)
-				me.make_column_chart3(from_date,to_date,country)
+			 	console.log("in the menu2");
+			 	// console.log(to_date);
+			 	me.make_pie_chart3(from_date,to_date)
+				me.make_column_chart3(from_date,to_date)
 		});
-
-		this.prosp_field1.$input.on("change", function() {
-         	    var from_date=$(this).val();
-			 	var to_date=me.prosp_field2.$input.val();
-			 	var country=me.prosp_field.$input.val();
-			 	me.make_pie_chart3(from_date,to_date,country)
-				me.make_column_chart3(from_date,to_date,country)
-		});
-
 		this.prosp_field.$input.on("change", function() {
          	    var from_date=me.prosp_field1.$input.val();
 			 	var to_date=me.prosp_field2.$input.val();
 			 	var country=$(this).val();
+
+
+			 	console.log("in the menu2");
+			 	// console.log(to_date);
 			 	me.make_pie_chart3(from_date,to_date,country)
 				me.make_column_chart3(from_date,to_date,country)
 		});
@@ -487,7 +477,7 @@ frappe.Chart = Class.extend({
 	make_menu4: function(){
 		var me = this;
 
-    	this.sub_country=frappe.ui.form.make_control({
+    	this.country=frappe.ui.form.make_control({
 		df: {
 		    "fieldtype": "Link",
 			"options": "Country",
@@ -499,10 +489,10 @@ frappe.Chart = Class.extend({
 		"only_input":true,
 		parent:$(me.wrapper).find("#ctab44"),
 		});
-		this.sub_country.make_input();
+		this.country.make_input();
 		$(this.wrapper).find("#ctab44").css("width","60%");
 
-		this.sub_from_date=frappe.ui.form.make_control({
+		this.pros_from_date=frappe.ui.form.make_control({
 		df: {
 		    "fieldtype": "Date",
 			"label": "From Date",
@@ -511,10 +501,10 @@ frappe.Chart = Class.extend({
 			},
 		parent:$(me.wrapper).find("#ctab144"),
 		});
-		this.sub_from_date.make_input();
+		this.pros_from_date.make_input();
 		 $(this.wrapper).find("#ctab144").css("width","100%");
 
-		this.sub_to_date=frappe.ui.form.make_control({
+		this.pros_to_date=frappe.ui.form.make_control({
 		df: {
 		    "fieldtype": "Date",
 			"label": "To Date",
@@ -523,37 +513,35 @@ frappe.Chart = Class.extend({
 			},
 		parent:$(me.wrapper).find("#ctab244"),
 		});
-		this.sub_to_date.make_input();
+		this.pros_to_date.make_input();
 		 $(this.wrapper).find("#ctab244").css("width","100%");
 
-        this.sub_to_date.$input.on("change", function() {
-        		console.log(["SubCountry", me.sub_country.$input.val()])
-			    var from_date=me.sub_from_date.$input.val();
+        	this.pros_to_date.$input.on("change", function() {
+			   	 var from_date=me.pros_from_date.$input.val();
 			 	var to_date=$(this).val();
-			 	var country=me.sub_country.$input.val(); 
-			 	console.log("in the subrsc");
+			 	var country=me.country.$input.val(); 
+			 	console.log("in the subscritop renewal country to date flet");
 			 	console.log(country);
-			 	console.log("country");
 			 	me.make_pie_chart4(from_date,to_date,country)
 				me.make_column_chart4(from_date,to_date,country)
 		});
 
-		this.sub_from_date.$input.on("change", function() {
+		this.pros_from_date.$input.on("change", function() {
 			    var from_date=$(this).val();
-			 	var to_date=me.sub_to_date.$input.val();
-			 	var country=me.sub_country.$input.val(); 
-			 	console.log("in the subrsc");
+			 	var to_date=me.pros_to_date.$input.val();
+			 	var country=me.country.$input.val();
+			 	console.log("from date trigger country");
 			 	console.log(country);
-			 	console.log("country");
-			 	me.make_pie_chart4(from_date,to_date,country)
-				me.make_column_chart4(from_date,to_date,country)
+			 	//console.log(country);
+			 	me.make_pie_chart5(from_date,to_date,country)
+				me.make_column_chart5(from_date,to_date,country)
 		});
 
-		this.sub_country.$input.on("change", function() {
-				var from_date=me.sub_from_date.$input.val();
-			    var to_date=me.sub_to_date.$input.val();
+		this.country.$input.on("change", function() {
+				var from_date=me.pros_from_date.$input.val();
+			    var to_date=me.pros_to_date.$input.val();
 			    var country=$(this).val();	
-			 	//console.log(to_date);
+			 	console.log(to_date);
 			 	me.make_pie_chart4(from_date,to_date,country)
 				me.make_column_chart4(from_date,to_date,country)
 		});
@@ -604,15 +592,15 @@ frappe.Chart = Class.extend({
 			    var from_date=me.from_date.$input.val();
 			 	var to_date=$(this).val();
 			 	var country=me.country.$input.val();
-			 	//console.log("in the menu5");
-			 	//console.log(from_date);
-			 	//console.log(country);
+			 	console.log("in the menu5");
+			 	console.log(from_date);
+			 	console.log(country);
 			 	me.make_pie_chart5(from_date,to_date,country)
 				me.make_column_chart5(from_date,to_date,country)
 		});
-
+		
 		this.from_date.$input.on("change", function() {
-			    var from_date=$(this).val();
+				var from_date=$(this).val();
 			 	var to_date=me.to_date.$input.val();
 			 	var country=me.country.$input.val();
 			 	//console.log("in the menu5");
@@ -626,9 +614,9 @@ frappe.Chart = Class.extend({
 			    var from_date=me.from_date.$input.val();
 			 	var to_date=me.to_date.$input.val();
 			 	var country=$(this).val();
-			 	//console.log("in the menu5");
-			 	//console.log(to_date);
-			 	//console.log(country);
+			 	console.log("in the menu5");
+			 	console.log(to_date);
+			 	console.log(country);
 			 	me.make_pie_chart5(from_date,to_date,country)
 				me.make_column_chart5(from_date,to_date,country)
 		});
@@ -642,29 +630,24 @@ frappe.Chart = Class.extend({
 				$('<h4>Activities</h4><hr>\
 				').appendTo($body);
 				// r.message.sort(function(a, b) { return b.has_session - a.has_session; });
-				//console.log(r.message)
+				console.log(r.message)
 				for(var i in r.message) {
+					console.log(r.message)
+
 					var p = r.message[i];
 					p.image = frappe.utils.get_file_link(frappe.user_info(p.name).image);
-					$(repl('<p style="width:100%">\
+					$(repl('<p>\
 						<span class="avatar avatar-small" \
-							title="%(ss)s"><img src="%(image)s" /></span>\
-							<a>%(ss)s</a>\
+							title="%(status)s"><img src="%(image)s" /></span>\
+							<a>%(feed_type)s</a> @\
+							<a>%(subject)s</a> @ <a>%(site_name)s</a>\
 						</p>', p))
 						.appendTo($body);
-					//console.log(r.message)
-					//var p = r.message[i];
-					//p.image = frappe.utils.get_file_link(frappe.user_info(p.name).image);
-					//$(repl('<p>\
-					//	<span class="avatar avatar-small" \
-					//		title="%(status)s"><img src="%(image)s" /></span>\
-					//		<a>%(feed_type)s</a> @\
-					//		<a>%(subject)s</a> @ <a>%(site_name)s</a>\
-					//	</p>', p))
-					//	.appendTo($body);
-					
+					// }
 				}
 			}
 		});
 	},	
 });
+
+

@@ -99,21 +99,22 @@ erpnext.Template = Class.extend({
 		$('#test_results_details').empty();
 
 		if(purpose == 'Mail'){
-			me.create_link();
+			me.create_link('user_add','Templates','Email Template');
 			this.create_fields({'fieldtype':'Text Editor', 'button_name':'Send Mail', 'purpose':purpose})
 		}
 		else if(purpose == 'Ticker'){
+			 me.create_link('ticker','Ticker','Ticker Master');
 			me.create_fields({'fieldtype':'Text', 'button_name':'Add Ticker', 'purpose':purpose})
 		}
 	},
-	create_link: function(){
+	create_link: function(field_name, label, doctype_name){
 		var me = this;
 		this.tlink = frappe.ui.form.make_control({
 				df: {
 					"fieldtype": 'Link',
-					"fieldname": "user_add",
-					"placeholder":"Templates",
-					"options": "Email Template"
+					"fieldname": field_name,
+					"placeholder": label,
+					"options": doctype_name
 				},
 				parent:$('#test_results_details'),
 			});
