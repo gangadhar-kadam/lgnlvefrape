@@ -10,7 +10,6 @@ mysql-python
 pygeoip
 python-dateutil
 python-memcached
---allow-external pytz-2014.10
 six
 slugify
 termcolor
