@@ -92,7 +92,7 @@ def make_connection(root_login, root_password):
         #	
 	#	if not root_password:
 	#		root_password = getpass.getpass("MySQL root password: ")
-	return frappe.database.Database(user=root_login, password='indictrans')
+	return frappe.database.Database(user=root_login, password='password')
 
 def install_app(name, verbose=False, set_as_patched=True):
 	frappe.flags.in_install_app = name

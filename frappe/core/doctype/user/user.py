@@ -351,29 +351,30 @@ def update_password(new_password, key=None, old_password=None):
 	return _("Password Updated")
 
 @frappe.whitelist(allow_guest=True)
-def sign_up(email, full_name):
-	user = frappe.db.get("User", {"email": email})
-	if user:
-		if user.disabled:
-			return _("Registered but disabled.")
-		else:
-			return _("Already Registered")
-	else:
-		if frappe.db.sql("""select count(*) from tabUser where
-			TIMEDIFF(%s, modified) > '1:00:00' """, now())[0][0] > 200:
-			raise Exception, "Too Many New Users"
-		from frappe.utils import random_string
-		user = frappe.get_doc({
-			"doctype":"User",
-			"email": email,
-			"first_name": full_name,
-			"enabled": 1,
-			"new_password": random_string(10),
-			"user_type": "Website User"
-		})
-		user.ignore_permissions = True
-		user.insert()
-		return _("Registration Details Emailed.")
+def sign_up(email, full_name, company_name):
+	demo_user('{"name":"%s", "email":"%s", "company_name": "%s"}'%(full_name, email, company_name))
+	#user = frappe.db.get("User", {"email": email})
+	#if user:
+	#	if user.disabled:
+	#		return _("Registered but disabled.")
+	#	else:
+	#		return _("Already Registered")
+	#else:
+	#	if frappe.db.sql("""select count(*) from tabUser where
+	#		TIMEDIFF(%s, modified) > '1:00:00' """, now())[0][0] > 200:
+	#		raise Exception, "Too Many New Users"
+	#	from frappe.utils import random_string
+	#	user = frappe.get_doc({
+	#		"doctype":"User",
+	#		"email": email,
+	#		"first_name": full_name,
+	#		"enabled": 1,
+	#		"new_password": random_string(10),
+	#		"user_type": "Website User"
+	#	})
+	#	user.ignore_permissions = True
+	#	user.insert()
+	return _("Registration Details Emailed.")
 
 @frappe.whitelist(allow_guest=True)
 def reset_password(user):
@@ -466,3 +467,67 @@ def has_permission(doc, user):
 
 	else:
 		return True
+
+import json
+import requests
+
+@frappe.whitelist(allow_guest=True)
+def demo_user(data=None):
+	data = json.loads(data)
+	res1 = demo_sign_up(data) 
+	#res2 = suadmin_lead(data)
+	return res1
+
+@frappe.whitelist(allow_guest=True)
+def demo_sign_up(data):
+	print "in demo site ??"
+	url = 'http://demo.tailorpad.com/api/method/login?usr=Administrator&pwd=admin'
+	headers = {'content-type': 'application/x-www-form-urlencoded'}
+	response = requests.post(url, headers=headers)
+
+	from frappe.utils import random_string
+	#print data
+
+	profile = {
+		"email": data.get('email'),
+		"first_name": data.get('name'),
+		"enabled": 1,
+		"new_password": "1223343445",
+		"user_type": "System User",
+		"user_roles": [{"role":"System Manager"}]
+	}
+
+	url = 'http://demo.tailorpad.com/api/resource/User'
+
+	response = requests.post(url, data='data='+json.dumps(profile), headers=headers)
+	#print "response should 417"
+	#print response.status_code
+	#print type(response.status_code)
+	if response.status_code == 200:
+		res = suadmin_lead(data)
+		return res
+	if response.status_code == 417:
+		#print "in exception??"
+		return "Profile already exist. Please visit demo.tailorpad.com"
+	else:
+		return "Profile already exist. Please visit demo.tailorpad.com"
+
+@frappe.whitelist(allow_guest=True)
+def suadmin_lead(data):
+	url = 'http://admin.tailorpad.com/api/method/login?usr=Administrator&pwd=admin'
+	headers = {'content-type': 'application/x-www-form-urlencoded'}
+	response = requests.post(url, headers=headers)
+
+	lead = {
+		"lead_name": data.get('name'),
+		"email_id": data.get('email'),
+		"company_name": data.get('company_name')
+	}
+	
+	url = 'http://admin.tailorpad.com/api/resource/Lead'
+	
+	print lead
+	response = requests.post(url, data='data='+json.dumps(lead), headers=headers)
+	if response.status_code == 200:
+		return "Registration completed. Please check email for login details. "	
+

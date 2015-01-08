@@ -134,7 +134,7 @@ class LoginManager:
 		if not cint(frappe.db.get_value('User', user, 'enabled')):
 			self.fail('User disabled or missing')
 		from frappe.utils import get_url, cstr
-		if get_url()!='http://stich1.tailorpad.com':
+		if get_url()!='http://tailorpad.com':
 			user = frappe.db.sql("""select `name` from tabUser where validity_start_date <= CURDATE() and validity_end_date >= CURDATE() and name=%s """, (user))
 			if user:
 				pass

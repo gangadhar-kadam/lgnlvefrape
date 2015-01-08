@@ -27,6 +27,7 @@ login.bind_events = function() {
 		args.cmd = "frappe.core.doctype.user.user.sign_up";
 		args.email = ($("#signup_email").val() || "").trim();
 		args.full_name = ($("#signup_fullname").val() || "").trim();
+		args.company_name = ($("#company_name").val() || "").trim();
 		if(!args.email || !valid_email(args.email) || !args.full_name) {
 			frappe.msgprint(__("Valid email and name required"));
 			return false;
@@ -59,6 +60,10 @@ login.login = function() {
 	$(".form-login").toggle(true);
 }
 
+$("#tc").on('click', function(){
+	$(".btn-signup").toggle(this.checked);
+})
+
 login.forgot = function() {
 	$("form").toggle(false);
 	$(".form-forgot").toggle(true);
@@ -67,6 +72,7 @@ login.forgot = function() {
 login.signup = function() {
 	$("form").toggle(false);
 	$(".form-signup").toggle(true);
+	$(".btn-signup").toggle(false);
 }
 
 

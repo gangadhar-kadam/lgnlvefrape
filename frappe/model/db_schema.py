@@ -338,8 +338,8 @@ class DbManager:
 
 	def grant_all_privileges(self,target,user):
 		self.db.sql("GRANT ALL PRIVILEGES ON `%s`.* TO '%s'@'localhost';" % (target, user))
-		self.db.sql("GRANT SELECT ON %s.* to 'stich1'@'localhost';" %(target))
-		frappe.errprint("GRANT SELECT ON %s.* to 'stich1'@'localhost';" %(target))
+		self.db.sql("GRANT SELECT ON %s.* to 'tailorpad'@'localhost';" %(target))
+		frappe.errprint("GRANT SELECT ON %s.* to 'tailorpad'@'localhost';" %(target))
 
 	def grant_select_privilges(self,db,table,user):
 		if table:
