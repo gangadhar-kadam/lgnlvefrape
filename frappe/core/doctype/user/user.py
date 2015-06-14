@@ -479,6 +479,14 @@ def demo_user(data=None):
 	return res1
 
 @frappe.whitelist(allow_guest=True)
+def validate_domain_name(data=None):
+	data = json.loads(data)
+	print "hii"
+	frappe.errprint([data, "hiii"])
+	return "data"
+	
+
+@frappe.whitelist(allow_guest=True)
 def demo_sign_up(data):
 	print "in demo site ??"
 	url = 'http://demo.tailorpad.com/api/method/login?usr=Administrator&pwd=admin'

@@ -62,19 +62,41 @@
  "icon": "icon-envelope", 
  "idx": 1, 
  "in_create": 1, 
- "modified": "2014-06-03 02:22:18.860832", 
- "modified_by": "Administrator", 
+ "modified": "2015-02-22 17:54:47.040315", 
+ "modified_by": "lagan@smartailor.com", 
  "module": "Core", 
  "name": "Bulk Email", 
  "owner": "Administrator", 
  "permissions": [
   {
+   "apply_user_permissions": 1, 
+   "create": 1, 
+   "delete": 1, 
    "email": 1, 
    "permlevel": 0, 
    "print": 1, 
    "read": 1, 
    "report": 1, 
-   "role": "System Manager"
+   "role": "System Manager", 
+   "write": 1
+  }, 
+  {
+   "amend": 0, 
+   "apply_user_permissions": 0, 
+   "cancel": 0, 
+   "create": 1, 
+   "delete": 1, 
+   "email": 0, 
+   "export": 0, 
+   "import": 0, 
+   "permlevel": 0, 
+   "print": 0, 
+   "read": 1, 
+   "report": 0, 
+   "role": "All", 
+   "set_user_permissions": 0, 
+   "submit": 0, 
+   "write": 1
   }
  ], 
  "read_only": 0
